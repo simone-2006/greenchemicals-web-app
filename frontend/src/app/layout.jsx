@@ -1,20 +1,20 @@
 import './globals.css';
 
+import Navbar from '@/components/layout/Navbar/Navbar';
+
 export const metadata = {
-  title: 'RexKit',
-  icons: {
-    icon: [
-      { url: '/icons/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
-      { url: '/icons/icon.png', sizes: '32x32', type: 'image/png' }
-    ],
-    apple: { url: '/icons/apple-icon.png', sizes: '180x180', type: 'image/png' }
-  }
+  title: 'Greenchemicals WEB',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
-      <body>{children}</body>
+      <body className='bg-background p-3'>
+        <Navbar></Navbar>
+        <div className='bg-background-element rounded-xl p-2 border border-border mt-2 '>
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
