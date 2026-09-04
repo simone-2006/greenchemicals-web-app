@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import NavbarButton from "./NavbarButton";
 
 const links = [
   { href: "/", label: "Home" },
@@ -19,11 +18,21 @@ const links = [
   // { href: "/contacts", label: "Contacts" },
 ];
 
+function NavbarButton({ children, isActive }) {
+  const activeClass = "bg-brand hover:bg-brand-dark text-text-inverted";
+  const inactiveClass = "bg-transparent hover:bg-background-secondary text-text";
+  return (
+      <button className={`transition-all rounded-md px-1.5 py-1 cursor-pointer ${isActive? activeClass : inactiveClass}`}>
+          {children}
+      </button>
+  );
+}
+
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
-      <nav className="flex items-center bg-background-element rounded-xl p-2 border border-border justify-between">
+      <nav className="flex items-center bg-background rounded-xl p-2 border border-border justify-between">
         {/* Left: Navigation Links */}
         <div className="flex items-center gap-2">
           {links.map(({ href, label }) => (
