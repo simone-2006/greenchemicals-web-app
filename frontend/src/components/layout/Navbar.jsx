@@ -2,10 +2,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Settings } from "lucide-react";
+import { House } from "lucide-react";
 
 
 const links = [
-  { href: "/", label: "Home" },
+  { href: "/", label: <House size={16}/> },
   { href: "/customer", label: "Customer" },
   { href: "/map", label: "Map" },
   { href: "/visits", label: "Visits" },
@@ -21,12 +22,26 @@ const links = [
 ];
 
 function NavbarButton({ children, isActive }) {
-  const activeClass = "bg-brand hover:bg-brand-dark text-text-inverted ";
+  const activeClass = "bg-brand hover:bg-brand-dark text-text-inverted";
   const inactiveClass = "bg-transparent hover:bg-background-secondary text-text";
   return (
-      <button className={`transition-all rounded-md px-1.5 py-1 cursor-pointer font-semibold uppercase ${isActive? activeClass : inactiveClass}`}>
-          {children}
-      </button>
+    <button
+      className={`
+        transition-all
+        rounded-md
+        px-1.5
+        h-7
+        flex
+        items-center
+        justify-center
+        cursor-pointer
+        font-semibold
+        uppercase
+        ${isActive ? activeClass : inactiveClass}
+      `}
+    >
+      {children}
+    </button>
   );
 }
 

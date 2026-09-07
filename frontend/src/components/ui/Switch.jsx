@@ -27,7 +27,7 @@ function Switch({
             aria-checked={isOn}
             disabled={disabled}
             onClick={handleToggle}
-            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 ${isOn ? "bg-success" : "bg-background-secondary"} ${className}`}
+            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 ${isOn ? "bg-brand" : "bg-background-secondary"} ${className}`}
             {...props}
         >
             <span

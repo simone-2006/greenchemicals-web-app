@@ -1,47 +1,86 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 @theme {
     /* Brand principale: blu moderno */
-    --color-brand: #2563eb; /* Blue 600: brand principale della piattaforma */
+    --color-brand: #2563eb;
+    /* Blue 600: brand principale della piattaforma */
 
     /* Varianti del colore brand */
-    --color-brand-light: #60a5fa; /* Blue 400: hover, highlight */
-    --color-brand-dark: #1e40af;  /* Blue 800: stati attivi, enfasi */
+    --color-brand-light: #60a5fa;
+    /* Blue 400: hover, highlight */
+    --color-brand-dark: #1e40af;
+    /* Blue 800: stati attivi, enfasi */
 
     /* Testo principale */
-    --color-text: #1e293b; /* Slate 800: testo principale */
-    --color-text-secondary: #64748b; /* Slate 500: testo secondario, descrizioni */
-    --color-text-inverted: #ffffff; /* Bianco su aree scure */
+    --color-text: #1e293b;
+    /* Slate 800: testo principale */
+    --color-text-secondary: #64748b;
+    /* Slate 500: testo secondario, descrizioni */
+    --color-text-inverted: #ffffff;
+    /* Bianco su aree scure */
 
     /* Background principali */
-    --color-background: #f1f5f9; /* Slate 100: sfondo principale */
-    --color-background-element: #ffffff; /* Card, modali, elementi su fondo */
+    --color-background: #f1f5f9;
+    /* Slate 100: sfondo principale */
+    --color-background-element: #ffffff;
+    /* Card, modali, elementi su fondo */
 
     /* Background secondari e accent */
-    --color-background-secondary: #e5e7eb; /* Gray 200: blocchi meno evidenti */
-    --color-background-accent: #dbeafe; /* Blue 100: highlight, badge, piccoli dettagli */
-    --color-background-overlay: #f1f5f9; /* Slate 100: overlay, finti layer */
+    --color-background-secondary: #e5e7eb;
+    /* Gray 200: blocchi meno evidenti */
+    --color-background-accent: #dbeafe;
+    /* Blue 100: highlight, badge, piccoli dettagli */
+    --color-background-overlay: #f1f5f9;
+    /* Slate 100: overlay, finti layer */
 
     /* Stati e feedback */
-    --color-success: #22c55e; /* Green 500: operazione riuscita */
-    --color-success-bg: #dcfce7; /* Green 100: background success */
-    --color-danger: #ef4444; /* Red 500: errore, alert */
-    --color-danger-bg: #fee2e2; /* Red 100: background errore */
-    --color-warning: #fbbf24; /* Amber 400: attenzione, warning */
-    --color-warning-bg: #fef9c3; /* Amber 100: background warning */
-    --color-info: #0ea5e9; /* Sky 500: informazioni, messaggi informativi */
-    --color-info-bg: #e0f2fe; /* Sky 100: background info */
+    --color-success: #22c55e;
+    /* Green 500: operazione riuscita */
+    --color-success-bg: #dcfce7;
+    /* Green 100: background success */
+    --color-danger: #ef4444;
+    /* Red 500: errore, alert */
+    --color-danger-bg: #fee2e2;
+    /* Red 100: background errore */
+    --color-warning: #fbbf24;
+    /* Amber 400: attenzione, warning */
+    --color-warning-bg: #fef9c3;
+    /* Amber 100: background warning */
+    --color-info: #0ea5e9;
+    /* Sky 500: informazioni, messaggi informativi */
+    --color-info-bg: #e0f2fe;
+    /* Sky 100: background info */
 
     /* Neutri */
-    --color-muted: #94a3b8; /* Slate 400: testo disattivato o poco importante */
-    --color-border: #e5e7eb; /* Gray 200: bordi un pelo più evidenti */
-    --color-divider: #e5e7eb; /* Gray 200: divisori */
+    --color-muted: #94a3b8;
+    /* Slate 400: testo disattivato o poco importante */
+    --color-border: #e5e7eb;
+    /* Gray 200: bordi un pelo più evidenti */
+    --color-divider: #e5e7eb;
+    /* Gray 200: divisori */
 
     /* Colori ausiliari */
-    --color-overlay: rgba(30,41,59,0.5); /* Overlay trasparente su modali o popup */
-    --color-focus: #2563eb; /* Colore del focus per l'accessibilità */
+    --color-overlay: rgba(30, 41, 59, 0.5);
+    /* Overlay trasparente su modali o popup */
+    --color-focus: #2563eb;
+    /* Colore del focus per l'accessibilità */
 
     /* Uso generico per ombre */
-    --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.leaflet-container img.leaflet-tile,
+.leaflet-container img.leaflet-marker-icon,
+.leaflet-container img.leaflet-marker-shadow,
+.leaflet-pane img {
+    max-width: none !important;
+    max-height: none !important;
 }
