@@ -23,7 +23,7 @@ const AGENTS = [
 
 const today = new Date().toISOString().slice(0, 10);
 
-export default function page() {
+export default function VisitsPage() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [dateFrom, setDateFrom] = useState("");

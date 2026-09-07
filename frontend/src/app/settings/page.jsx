@@ -10,7 +10,7 @@ const TABS = [
     { id: "general", label: "General", icon: Sliders },
 ];
 
-export default function page() {
+export default function SettingsPage() {
     const [activeTab, setActiveTab] = useState("account");
 
     return (

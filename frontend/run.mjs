@@ -9,7 +9,10 @@ const { frontend } = JSON.parse(readFileSync(join(dir, '../ports.json'), 'utf8')
 const nextBin = join(dir, 'node_modules/next/dist/bin/next');
 const command = process.argv[2] === 'start' ? 'start' : 'dev';
 
-const child = spawn(process.execPath, [nextBin, command, '-p', String(frontend)], {
+const args = [nextBin, command, '-p', String(frontend)];
+if (command === 'dev') args.push('--turbopack');
+
+const child = spawn(process.execPath, args, {
   cwd: dir,
   stdio: 'inherit'
 });

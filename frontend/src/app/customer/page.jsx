@@ -3,7 +3,7 @@ import { Building2, FunnelX, Plus } from "lucide-react";
 
 import Button from "@/components/ui/Button";
 
-export default function page() {
+export default function CustomerPage() {
   return (
     <div>
       <div className="flex items-center justify-between">

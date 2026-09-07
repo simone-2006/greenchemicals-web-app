@@ -1,4 +1,4 @@
-export default function page() {
+export default function ProductResearchPage() {
   return (
     <div></div>
   );

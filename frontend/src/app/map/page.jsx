@@ -34,7 +34,7 @@ function parseBounds(boundingbox) {
   ];
 }
 
-export default function page() {
+export default function MapPage() {
   const [layer, setLayer] = useState("street");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);

@@ -1,4 +1,4 @@
-export default function page() {
+export default function FormulasPage() {
   return (
     <div></div>
   );
