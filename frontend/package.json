@@ -9,6 +9,7 @@
     "start": "node run.mjs start"
   },
   "dependencies": {
+    "lucide-react": "^1.41.0",
     "next": "^15.5.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"

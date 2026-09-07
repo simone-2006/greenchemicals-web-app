@@ -14,7 +14,7 @@
     --color-text-inverted: #ffffff; /* Bianco su aree scure */
 
     /* Background principali */
-    --color-background: #f8fafc; /* Slate 50: sfondo principale */
+    --color-background: #f1f5f9; /* Slate 100: sfondo principale */
     --color-background-element: #ffffff; /* Card, modali, elementi su fondo */
 
     /* Background secondari e accent */
@@ -34,7 +34,7 @@
 
     /* Neutri */
     --color-muted: #94a3b8; /* Slate 400: testo disattivato o poco importante */
-    --color-border: #d1d5db; /* Gray 300: bordi generici */
+    --color-border: #e5e7eb; /* Gray 200: bordi un pelo più evidenti */
     --color-divider: #e5e7eb; /* Gray 200: divisori */
 
     /* Colori ausiliari */

@@ -62,3 +62,7 @@ ehthumbs.db
 *.key
 *.p12
 *.pfx
+
+
+.cursor
+package-lock.json
