@@ -81,19 +81,21 @@ export default function Navbar() {
           </div>
 
           {/* Settings Button */}
-          <button
-            id="settingsButton"
-            onClick={() => {
-              // (Add settings handler here)
-            }}
-            className="p-2 text-text-secondary cursor-pointer rounded-md flex items-center justify-center"
-            type="button"
-            aria-label="Open settings"
-          >
-            <span role="img" aria-label="settings" className="text-lg">
-              <Settings size={18}></Settings>
-            </span>
-          </button>
+          <Link href="/settings">
+            <button
+              id="settingsButton"
+              onClick={() => {
+                // (Add settings handler here)
+              }}
+              className="p-2 text-text-secondary cursor-pointer rounded-md flex items-center justify-center hover:rotate-90 transition-all hover:text-text"
+              type="button"
+              aria-label="Open settings"
+            >
+              <span role="img" aria-label="settings" className="text-lg">
+                <Settings size={18}></Settings>
+              </span>
+            </button>
+          </Link>
 
         </div>
       </nav>

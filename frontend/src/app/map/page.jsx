@@ -97,12 +97,12 @@ export default function page() {
           >
             Customer map
           </Title>
-          <div className="flex items-center gap-2 rounded-md border border-border p-1">
+          <div className="flex items-center gap-2 rounded-md border border-border p-1 text-text text-xs font-semibold">
             Mine
             <Switch />
             All
           </div>
-          <div className="flex items-center gap-2 rounded-md border border-border p-1">
+          <div className="flex items-center gap-2 rounded-md border border-border p-1 text-text text-xs font-semibold">
             <label className="flex items-center gap-1">
               <Input type="checkbox" />
               Cluster
@@ -162,3 +162,5 @@ export default function page() {
     </div>
   );
 }
+
+// flex h-8 items-center gap-1 rounded-md  px-2 py-1 text-xs font-semibold leading-4 transition-colors duration-150 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:border-border disabled:bg-background-secondary disabled:text-muted disabled:pointer-events-none border border-border bg-transparent text-text hover:bg-background 
