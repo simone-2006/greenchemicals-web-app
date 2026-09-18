@@ -1,19 +1,23 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
+import { FIELD_COMMON_CLASSES, getFieldWidthClass, getVariantClass } from "./fieldStyles";
 
-const FIELD_CLASSES =
-    "h-8 w-full appearance-none rounded-md border border-border bg-background-element px-2 py-1 pr-7 text-xs font-semibold leading-4 text-text transition-colors duration-150 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:border-border disabled:bg-background-secondary disabled:text-muted disabled:pointer-events-none aria-invalid:border-danger";
+const COMMON_CLASSES = `${FIELD_COMMON_CLASSES} h-8 appearance-none py-1 pr-7 cursor-pointer`;
 
 function Select({
     children,
+    variant = "default",
     className = "",
     ...props
 }) {
+    const variantClass = getVariantClass(variant);
+    const widthClass = getFieldWidthClass(className);
+
     return (
-        <div className="relative inline-block w-full">
+        <div className={`relative w-full ${widthClass}`}>
             <select
-                className={`${FIELD_CLASSES} ${className}`}
+                className={`${COMMON_CLASSES} max-w-none ${variantClass} ${className}`}
                 {...props}
             >
                 {children}

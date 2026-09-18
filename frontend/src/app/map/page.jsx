@@ -2,10 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Title from "@/components/layout/Title";
-import { Map, Satellite } from "lucide-react";
+import { Map, Satellite, Search } from "lucide-react";
 import Switch from "@/components/ui/Switch";
 import Input from "@/components/ui/Input";
-import SearchInput from "@/components/ui/SearchInput";
 import Button from "@/components/ui/Button";
 import dynamic from "next/dynamic";
 
@@ -131,23 +130,27 @@ export default function MapPage() {
           </div>
 
           <div ref={searchRef} className="relative">
-            <SearchInput
+            <Input
+              type="search"
+              variant="ghost"
+              icon={<Search size={16} />}
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               onFocus={() => results.length > 0 && setOpen(true)}
               placeholder="Search a place / customer"
+              autoComplete="off"
             />
             {open && results.length > 0 && (
               <ul className="absolute right-0 z-20 mt-1 max-h-56 w-72 overflow-auto rounded-md border border-border bg-background-element">
                 {results.map((item) => (
                   <li key={item.place_id}>
-                    <button
-                      type="button"
-                      className="w-full px-2 py-1.5 text-left text-xs font-semibold text-text hover:bg-background-accent"
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start border-transparent font-normal"
                       onClick={() => selectResult(item)}
                     >
                       {item.display_name}
-                    </button>
+                    </Button>
                   </li>
                 ))}
               </ul>
@@ -161,6 +164,4 @@ export default function MapPage() {
       </div>
     </div>
   );
-}
-
-// flex h-8 items-center gap-1 rounded-md  px-2 py-1 text-xs font-semibold leading-4 transition-colors duration-150 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:border-border disabled:bg-background-secondary disabled:text-muted disabled:pointer-events-none border border-border bg-transparent text-text hover:bg-background 
+} 

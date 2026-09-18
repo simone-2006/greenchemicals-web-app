@@ -22,6 +22,8 @@ Poi configura il database: copia `backend/crud-generator/.env.example` in `backe
 
 ---
 
+
+
 ## Avvio
 
 Dalla root:
@@ -30,10 +32,12 @@ Dalla root:
 npm run dev
 ```
 
-| Servizio | URL | Cartella |
-|---|---|---|
-| Backend | http://localhost:3000 | `backend/crud-generator` |
-| Frontend | http://localhost:5173 | `frontend` |
+
+| Servizio | URL                                            | Cartella                 |
+| -------- | ---------------------------------------------- | ------------------------ |
+| Backend  | [http://localhost:3000](http://localhost:3000) | `backend/crud-generator` |
+| Frontend | [http://localhost:5173](http://localhost:5173) | `frontend`               |
+
 
 Due terminali:
 
@@ -67,6 +71,8 @@ Opzionale: `PORT=4000` in `backend/crud-generator/.env` sovrascrive solo la port
 
 ---
 
+
+
 ## Struttura
 
 ```
@@ -86,6 +92,8 @@ RexKit/
 ```
 
 ---
+
+
 
 ## Frontend (React + Next.js)
 
@@ -116,16 +124,20 @@ L’alias `@/` punta a `frontend/src/`. Importa così:
 import { createCrud } from '@/lib/crud.js';
 ```
 
+
+
 ### Routing
 
 Non installi `react-router`. Aggiungi una cartella con `page.jsx`.
 
-| File | URL |
-|---|---|
-| `src/app/page.jsx` | `/` |
-| `src/app/clienti/page.jsx` | `/clienti` |
-| `src/app/clienti/[id]/page.jsx` | `/clienti/12` |
+
+| File                            | URL             |
+| ------------------------------- | --------------- |
+| `src/app/page.jsx`              | `/`             |
+| `src/app/clienti/page.jsx`      | `/clienti`      |
+| `src/app/clienti/[id]/page.jsx` | `/clienti/12`   |
 | `src/app/impostazioni/page.jsx` | `/impostazioni` |
+
 
 Esempio pagina statica:
 
@@ -171,6 +183,8 @@ import { useRouter } from 'next/navigation';
 const router = useRouter();
 router.push('/clienti');
 ```
+
+
 
 ### Server Component vs Client Component
 
@@ -242,6 +256,8 @@ Componenti ripetuti (bottoni, tabelle) mettili in `src/components/` e importali 
 
 ---
 
+
+
 ## Configurazione database
 
 File: `backend/crud-generator/.env` (parti da `.env.example`)
@@ -273,21 +289,25 @@ Usa la whitelist in produzione. Senza, ogni tabella del database è un’API.
 
 ---
 
+
+
 ## CRUD automatico
 
 Per ogni tabella esposta esiste già l’API REST. Non registri niente: parte da solo.
 
 Sostituisci `clienti` col nome reale della tabella.
 
-| Metodo | URL | Cosa fa |
-|---|---|---|
-| GET | `/api/clienti` | elenco |
-| GET | `/api/clienti/:id` | un record (chiave primaria) |
-| POST | `/api/clienti` | crea |
-| PUT / PATCH | `/api/clienti/:id` | aggiorna |
-| DELETE | `/api/clienti/:id` | elimina |
-| GET | `/api/clienti/schema` | colonne, tipi, PK, identity |
-| GET | `/api/_tables` | elenco tabelle esposte |
+
+| Metodo      | URL                   | Cosa fa                     |
+| ----------- | --------------------- | --------------------------- |
+| GET         | `/api/clienti`        | elenco                      |
+| GET         | `/api/clienti/:id`    | un record (chiave primaria) |
+| POST        | `/api/clienti`        | crea                        |
+| PUT / PATCH | `/api/clienti/:id`    | aggiorna                    |
+| DELETE      | `/api/clienti/:id`    | elimina                     |
+| GET         | `/api/clienti/schema` | colonne, tipi, PK, identity |
+| GET         | `/api/_tables`        | elenco tabelle esposte      |
+
 
 `GET /health` restituisce stato, tabelle e nomi delle query custom.
 
@@ -342,6 +362,8 @@ Risposta elenco:
 
 ---
 
+
+
 ## API personalizzate
 
 Il CRUD copre solo list / get / create / update / delete su una tabella. Filtri, join, report e comandi si dichiarano con `define`.
@@ -366,12 +388,16 @@ All’avvio RexKit:
 3. esegue la query in modo parametrizzato
 4. la rende disponibile anche con `q('nomeApi')` dal frontend
 
+
+
 ### Metodo HTTP automatico
 
-| SQL | Metodo | Dove stanno i parametri |
-|---|---|---|
-| `SELECT` o `WITH` | GET | query string |
-| `INSERT` / `UPDATE` / `DELETE` | POST | JSON body |
+
+| SQL                            | Metodo | Dove stanno i parametri |
+| ------------------------------ | ------ | ----------------------- |
+| `SELECT` o `WITH`              | GET    | query string            |
+| `INSERT` / `UPDATE` / `DELETE` | POST   | JSON body               |
+
 
 Override solo se serve: `method: 'GET'` oppure `method: 'POST'`.
 
@@ -421,6 +447,8 @@ define('totaleOrdiniCliente', {
   `
 });
 ```
+
+
 
 ### 3. Comandi
 
@@ -497,6 +525,8 @@ CRUD e custom non si sovrappongono:
 
 ---
 
+
+
 ## Produzione
 
 Dalla root:
@@ -517,6 +547,8 @@ Prima di andare in produzione:
 
 ---
 
+
+
 ## Cosa non fare (v1)
 
 - Non concatenare valori nel SQL (`WHERE citta = '${citta}'`). Usa sempre `@nome`.
@@ -525,3 +557,24 @@ Prima di andare in produzione:
 - I parametri arrivano solo da query string (GET) o JSON body (POST).
 - Le API `table: '...'` avvisano all’avvio se la tabella non esiste o non è in whitelist. Lo `sql` libero non viene validato sulle tabelle: scrivilo con attenzione.
 - Nessuna autenticazione in questa versione: la whitelist è l’unico limite su quali tabelle sono esposte.
+
+```js
+<Form
+  fields={[
+    { name: "ragioneSociale", label: "Ragione sociale", type: "text", required: true },
+    { name: "email", label: "Email", type: "email" },
+    { name: "note", label: "Note", type: "textarea", colSpan: 2 },
+    { name: "attivo", label: "Attivo", type: "switch" },
+    {
+      name: "custom",
+      label: "Campo custom",
+      colSpan: 2,
+      render: ({ value, onChange }) => <MioComponente value={value} onChange={onChange} />,
+    },
+  ]}
+  values={values}
+  onChange={setValues}   // oppure onSubmit con FormData/object
+  onSubmit={handleSubmit}
+  submitLabel="Salva"
+/>
+```

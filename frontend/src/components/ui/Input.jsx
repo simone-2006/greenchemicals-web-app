@@ -1,21 +1,46 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { FIELD_COMMON_CLASSES, getFieldWidthClass, getVariantClass } from "./fieldStyles";
 
-const FIELD_CLASSES =
-    "h-8 w-full max-w-xs rounded-md border border-border bg-background-element px-2 py-1 text-xs font-semibold leading-4 text-text placeholder:text-muted transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:border-border disabled:bg-background-secondary disabled:text-muted disabled:pointer-events-none aria-invalid:border-danger";
+const COMMON_CLASSES = `${FIELD_COMMON_CLASSES} h-8 py-1`;
 
-export default function Input({
+function Input({
     type = "text",
+    variant = "default",
+    icon = null,
     className = "",
     ...props
 }) {
-    return (
+    if (type === "checkbox" || type === "radio") {
+        return (
+            <input
+                type={type}
+                className={`size-4 shrink-0 accent-brand ${className}`}
+                {...props}
+            />
+        );
+    }
+
+    const variantClass = getVariantClass(variant);
+    const widthClass = getFieldWidthClass(className);
+    const input = (
         <input
             type={type}
-            className={`${FIELD_CLASSES} ${className}`}
+            className={`${COMMON_CLASSES} ${widthClass} ${variantClass} ${icon ? "pl-7" : ""} ${className}`}
             {...props}
         />
     );
+
+    if (!icon) return input;
+
+    return (
+        <div className={`relative inline-flex w-full ${widthClass}`}>
+            <span className="pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-muted">
+                {icon}
+            </span>
+            {input}
+        </div>
+    );
 }
 
+export default Input;

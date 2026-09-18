@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import Title from "@/components/layout/Title";
-import { BriefcaseBusiness, Funnel, Plus } from "lucide-react";
+import { BriefcaseBusiness, Funnel, Plus, Search } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
-import SearchInput from "@/components/ui/SearchInput";
 import VisitCard from "@/components/ui/VisitCard";
 
 const AGENTS = [
@@ -162,10 +161,13 @@ export default function VisitsPage() {
             )}
           </div>
 
-          <SearchInput
+          <Input
+            type="search"
+            icon={<Search size={16} />}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search customer"
+            autoComplete="off"
           />
         </div>
 

@@ -116,9 +116,14 @@ export default function Page() {
       <Button variant="default">BOTTONE</Button>
       <Button variant="ghost">BOTTONE</Button>
       <Button variant="primary">BOTTONE</Button>
+      <Button variant="superPrimary">BOTTONE</Button>
       <Button variant="success">BOTTONE</Button>
       <Button variant="danger">BOTTONE</Button>
       <Button variant="warning">BOTTONE</Button>
+
+      <Button variant="ghostSuccess">BOTTONE</Button>
+      <Button variant="ghostDanger">BOTTONE</Button>
+      <Button variant="ghostWarning">BOTTONE</Button>
     </div>
   );
 }

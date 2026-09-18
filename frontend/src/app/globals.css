@@ -3,14 +3,11 @@
 
 @theme {
     /* Brand principale: blu moderno */
-    --color-brand: #2563eb;
-    /* Blue 600: brand principale della piattaforma */
+    --color-brand: #00b3ff;
 
     /* Varianti del colore brand */
-    --color-brand-light: #60a5fa;
-    /* Blue 400: hover, highlight */
-    --color-brand-dark: #1e40af;
-    /* Blue 800: stati attivi, enfasi */
+    --color-brand-light: #66d5ff;
+    --color-brand-dark: #006ba1;
 
     /* Testo principale */
     --color-text: #1e293b;
@@ -54,9 +51,10 @@
 
     /* Neutri */
     --color-muted: #94a3b8;
-    /* Slate 400: testo disattivato o poco importante */
-    --color-border: #e5e7eb;
-    /* Gray 200: bordi un pelo più evidenti */
+    --color-border: #cbd5e1;
+    --color-border-darker: #8a8a8a;
+
+
     --color-divider: #e5e7eb;
     /* Gray 200: divisori */
 
